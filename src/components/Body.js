@@ -45,15 +45,19 @@ const Body = () => {
 
     return (
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type ="text" className="search-box" 
+            <div className="filter flex">
+                <div className="search m-4 p-4 ">
+                    <input 
+                    type ="text" 
+                    className="border border-solid border-black" 
                     value={searchText} onChange={
                         (e)=>{
                             setSearchText(e.target.value);
                         }
                     }/>
-                    <button onClick={() =>
+                    <button
+                    className ="px-4 py-1 bg-green-100 m-4 rounded-xl" 
+                    onClick={() =>
                         {
                             
 
@@ -66,19 +70,25 @@ const Body = () => {
                         }
                     } >search</button>
                 </div>
-                <button className ="filter-btn" onClick = {
+                <div className="search m-4 p-4 flex items-center" >
 
-                    () =>{
-                        // filter logic
-                      const filteredLists = restaurantLists.filter(
-                        (res) => {
-                             return res.info?.avgRating >4.4}
-                        );
-                        setrestaurantLists(filteredLists);
-                    }
-                }>Top Rated Restaurant</button>
+                    <button 
+                    className ="px-4 py-1 bg-gray-100 rounded-xl" 
+                    onClick = {
+
+                        () =>{
+                            // filter logic
+                        const filteredLists = restaurantLists.filter(
+                            (res) => {
+                                return res.info?.avgRating >4.4}
+                            );
+                            setrestaurantLists(filteredLists);
+                        }
+                    }>Top Rated Restaurant</button>
+
+                </div>
             </div>
-            <div className="res-container">
+            <div className="res-container flex flex-wrap">
                 {
                 filteredRestaurant.map((restaurant)=>(
                     <Link 

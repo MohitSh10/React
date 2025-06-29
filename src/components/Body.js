@@ -16,6 +16,8 @@ const Body = () => {
 
     const [filteredRestaurant , setFilteredRestaurant] = useState([]);
 
+    console.log("Body Rendered " , restaurantLists);
+
     useEffect(()=> {
         fetchData();
     } ,[]) ;
@@ -26,7 +28,7 @@ const Body = () => {
 
         const json = await data.json();
 
-        console.log(json);
+        // console.log(json);
         // optional chaining
         setrestaurantLists(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
